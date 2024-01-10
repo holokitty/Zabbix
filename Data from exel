@@ -1,0 +1,8 @@
+import pandas as pd
+# Excel-файл с данными о узлах
+excel_file = '/Users/mariiagit/venv/python_codes/Zabbix.xlsx'
+#excel_file = input('Input address link: ')
+# Загрузка данных из Excel-файла
+df = pd.read_excel(excel_file)
+
+print(df)
