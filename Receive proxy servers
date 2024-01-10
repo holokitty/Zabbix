@@ -1,0 +1,21 @@
+from pyzabbix import ZabbixAPI
+#задайте адрес заббикса, логин и пароль
+zabbix_server = 'http://10.18.0.15'
+zabbix_user = 'arcticdu'
+zabbix_password = 'Jbanovamaria82'
+zapi = ZabbixAPI(zabbix_server)
+zapi.login(zabbix_user, zabbix_password)
+
+# Connect Zabbix API
+zapi = ZabbixAPI(zabbix_server)
+zapi.login(zabbix_user, zabbix_password)
+
+# Recieve all information about proxy
+proxies = zapi.proxy.get(output='extend')
+
+# Output info about proxy
+for proxy in proxies:
+    print(f"Proxy ID: {proxy['proxyid']} - Proxy Name: {proxy['host']}")
+
+# Disconnect Zabbix API
+zapi.logout()
